@@ -1,0 +1,23 @@
+{
+  "name": "torre-osi",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "3.13.0",
+    "matter-js": "0.20.0",
+    "roughjs": "4.6.6",
+    "three": "0.176.0"
+  },
+  "devDependencies": {
+    "@types/matter-js": "0.19.8",
+    "@types/three": "0.176.0",
+    "typescript": "5.8.3",
+    "vite": "6.3.5"
+  }
+}

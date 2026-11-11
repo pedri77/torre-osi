@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anatomía de un ataque · La torre OSI</title>
+    <meta name="description" content="Siete capas OSI, un intruso y una kill chain: cómo se cae una red piso a piso, y qué controles la sostienen. Datos del catálogo de vulnerabilidades por capa OSI." />
+    <meta name="author" content="David Moya García" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Cg fill='none' stroke='%23ef4444' stroke-width='2'%3E%3Crect x='8' y='5' width='16' height='4'/%3E%3Crect x='8' y='11' width='16' height='4'/%3E%3Crect x='8' y='17' width='16' height='4'/%3E%3Crect x='8' y='23' width='16' height='4'/%3E%3C/g%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="saltar" href="#defiende">Saltar al juego</a>
+    <header class="cabecera">
+      <span class="marca">la torre OSI</span>
+      <a href="#defiende">defiende tu torre ↓</a>
+    </header>
+
+    <main>
+      <section id="portada" class="escena" style="height: 320svh">
+        <div class="fijo">
+          <canvas id="c3d" aria-hidden="true"></canvas>
+          <div class="etiquetas" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="titular">
+            <p class="antetitulo">kill chain · modelo OSI</p>
+            <h1>Anatomía<br />de un ataque</h1>
+            <p class="entradilla">Una red son siete capas apiladas. Un intruso no la derriba de un golpe: sube piso a piso.</p>
+          </div>
+          <p class="cierre-portada">Cada capa es un piso.<br /><em>Y cada piso se puede romper.</em></p>
+          <p class="pista" aria-hidden="true">baja <span>↓</span></p>
+        </div>
+      </section>
+
+      <section id="cadena" class="escena" style="height: 1000svh" aria-label="La kill chain, capa a capa">
+        <div class="fijo rejilla">
+          <svg id="tira" class="tira" role="img" aria-label="Fases de la cadena"></svg>
+          <div class="lienzo"><canvas id="c2d" aria-hidden="true"></canvas></div>
+          <article id="ficha" class="ficha" aria-live="polite">
+            <svg class="marco" aria-hidden="true"></svg>
+            <div class="ficha-cuerpo"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="defiende" class="juego">
+        <div class="juego-cabeza">
+          <p class="antetitulo">tu turno</p>
+          <h2>Defiende tu torre</h2>
+          <p>
+            Tienes <strong>3 controles</strong>. El intruso tiene <strong>2 rodeos</strong>: cuando un control lo frena, busca otra vía y sigue
+            subiendo. Al tercer control se rinde. Si llega a la capa 7, la torre cae.
+          </p>
+        </div>
+        <div class="juego-rejilla">
+          <div class="lienzo lienzo-juego"><canvas id="cdef" aria-label="Torre que defiendes"></canvas></div>
+          <div class="panel">
+            <ol id="controles" class="controles"></ol>
+            <div class="botones">
+              <button id="atacar" class="boton boton-rojo" type="button">Lanzar el ataque</button>
+              <button id="reiniciar" class="boton" type="button">Reiniciar</button>
+            </div>
+            <p id="veredicto" class="veredicto" aria-live="polite">Elige hasta 3 controles y lanza el ataque.</p>
+            <p class="nota-raton">Con ratón puedes coger los bloques y lanzarlos.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cierre">
+        <h2>La torre no cae por un golpe.<br /><em>Cae por la suma.</em></h2>
+        <p>
+          Ninguno de los siete pasos es espectacular: una roseta libre, un ARP sin inspeccionar, un ping que nadie filtra. Cada uno tiene su control
+          conocido y barato. La cadena de este relato es un escenario ilustrativo; las clases, los identificadores de MITRE ATT&amp;CK y CWE y los
+          controles salen del catálogo.
+        </p>
+        <div class="enlaces">
+          <a class="boton boton-rojo" id="enlace-catalogo" href="#">Catálogo por capa OSI →</a>
+          <a class="boton" id="enlace-historico" href="#">Matriz histórica 1985-2025 →</a>
+        </div>
+        <footer>
+          David Moya García · física con Matter.js, 3D con Three.js, trazo con Rough.js y movimiento con GSAP ·
+          <a href="https://github.com/pedri77/torre-osi">código</a>
+        </footer>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
